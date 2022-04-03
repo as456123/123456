@@ -1,0 +1,108 @@
+   V0:
+#include <stdio.h>
+int main ()
+{
+	char strexp[]={"1+2+2+1+2+5+4-1-3+4-8"};
+	int q=strexp[0]-'0';
+	int w=strexp[2]-'0';
+	int e=strexp[4]-'0';
+	int r=strexp[6]-'0';
+	int t=strexp[8]-'0';
+	int y=strexp[10]-'0';
+	int u=strexp[12]-'0';
+	int i=strexp[14]-'0';
+	int o=strexp[16]-'0';
+	int p=strexp[18]-'0';
+	int a=strexp[20]-'0';
+	int d=q+w+e+r+t+y+u-i-o+p-a;
+	printf("%d",d); 
+	
+	
+	
+	
+	return 0;
+} 
+
+
+  V1:
+#include <stdio.h>
+# include <string.h>
+int main ()
+{
+	char strexp[]={"1+2+2+1+2+5+4-1-3+4-8"};
+
+	int res=strexp[0]-'0';
+	for (int i=1;i<strlen(strexp);i++)
+	{
+		if (strexp[i]=='+')
+		{
+			int r=strexp[i+1]-'0';
+			res =res+r;
+			i++;
+		}
+		else if (strexp[i]=='-')
+		{
+			
+			int r =strexp[i+1]-'0';
+			res =res-r;
+			i++;
+		}
+		
+	}
+	
+	 
+	printf ("%d",res);
+	
+	
+	return 0;
+} 
+
+
+  V2:
+#include <stdio.h>
+# include <string.h>
+int main ()
+{
+	char strexp[]={"1*6/2*1/3*5/5*3"};
+
+	int res=strexp[0]-'0';
+	for (int i=1;i<strlen(strexp);i++)
+	{
+		if (strexp[i]=='*')
+		{
+			int r=strexp[i+1]-'0';
+			res =res*r;
+			i++;
+		}
+		else if (strexp[i]=='/')
+		{
+			
+			int r =strexp[i+1]-'0';
+			res =res/r;
+			i++;
+		}
+		
+	}
+	
+	 
+	printf ("%d",res);
+	
+	
+	return 0;
+} 
+
+  V3:
+#include<stdio.h>
+int main()
+{
+	char str[]="1+2*4+2/2-1";
+	int A,a,b,c,d;
+	a=str[0]-'0';
+	b=(str[2]-'0')*(str[4]-'0');
+	c=(str[6]-'0')/(str[8]-'0');
+	d=str[10]-'0';
+	A=a+b+c-d;
+	
+	printf("%d\n",A);
+	return 0;
+	}
